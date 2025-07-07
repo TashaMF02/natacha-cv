@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Natacha MOMO FOUMTHIM</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .cv-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .name {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9em;
+        }
+
+        .contact-icon {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            padding: 40px 30px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 1.4em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 3px solid #3498db;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-icon {
+            width: 24px;
+            height: 24px;
+            fill: #3498db;
+        }
+
+        .profile-text {
+            text-align: justify;
+            line-height: 1.8;
+            color: #555;
+            font-size: 0.95em;
+        }
+
+        .formation-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+            margin-bottom: 15px;
+        }
+
+        .formation-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .formation-school {
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
+        .skills-grid {
+            display: grid;
+            gap: 12px;
+        }
+
+        .skill-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            background: #e3f2fd;
+            transform: translateX(5px);
+        }
+
+        .skill-name {
+            font-weight: 500;
+            color: #2c3e50;
+        }
+
+        .skill-level {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+            color: white;
+        }
+
+        .level-debutant {
+            background: #e74c3c;
+        }
+
+        .level-intermediaire {
+            background: #f39c12;
+        }
+
+        .level-bien {
+            background: #27ae60;
+        }
+
+        .level-tres-bien {
+            background: #2ecc71;
+        }
+
+        .languages-grid {
+            display: grid;
+            gap: 10px;
+        }
+
+        .language-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .language-name {
+            font-weight: 500;
+            color: #2c3e50;
+        }
+
+        .achievements-list {
+            display: grid;
+            gap: 15px;
+        }
+
+        .achievement-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .achievement-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .achievement-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .interests {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .interests-icon {
+            width: 30px;
+            height: 30px;
+            fill: #3498db;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 20px 15px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .name {
+                font-size: 2em;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-content">
+                <h1 class="name">Natacha MOMO FOUMTHIM</h1>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <svg class="contact-icon" viewBox="0 0 24 24">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                        natachamomo02@gmail.com
+                    </div>
+                    <div class="contact-item">
+                        <svg class="contact-icon" viewBox="0 0 24 24">
+                            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                        </svg>
+                        653462617
+                    </div>
+                    <div class="contact-item">
+                        <svg class="contact-icon" viewBox="0 0 24 24">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        </svg>
+                        Logbessou, cité Camair - Douala
+                    </div>
+                    <div class="contact-item">
+                        <svg class="contact-icon" viewBox="0 0 24 24">
+                            <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.1 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/>
+                        </svg>
+                        18 mai 2005
+                    </div>
+                    <div class="contact-item">
+                        <svg class="contact-icon" viewBox="0 0 24 24">
+                            <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 1H9C7.9 1 7 1.9 7 3V9C7 10.1 7.9 11 9 11V16L11 14L13 16V11C14.1 11 15 10.1 15 9V7.5L21 9Z"/>
+                        </svg>
+                        Camerounaise
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Left Column -->
+            <div class="left-column">
+                <!-- Profile -->
+                <div class="section">
+                    <h2 class="section-title">
+                        <svg class="section-icon" viewBox="0 0 24 24">
+                            <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 1H9C7.9 1 7 1.9 7 3V9C7 10.1 7.9 11 9 11V16L11 14L13 16V11C14.1 11 15 10.1 15 9V7.5L21 9Z"/>
+                        </svg>
+                        Profil
+                    </h2>
+                    <p class="profile-text">
+                        Étudiante motivée, désireuse d'appliquer mes connaissances théoriques dans un environnement professionnel stimulant. Je suis rigoureuse, curieuse et désireuse d'acquérir une expérience pratique enrichissante.
+                    </p>
+                </div>
+
+                <!-- Formation -->
+                <div class="section">
+                    <h2 class="section-title">
+                        <svg class="section-icon" viewBox="0 0 24 24">
+                            <path d="M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18M12,3L1,9L12,15L21,11.09V17H23V9L12,3Z"/>
+                        </svg>
+                        Formation
+                    </h2>
+                    <div class="formation-item">
+                        <div class="formation-title">Licence</div>
+                        <div class="formation-school">École nationale supérieure polytechnique de Douala</div>
+                    </div>
+                </div>
+
+                <!-- Langues -->
+                <div class="section">
+                    <h2 class="section-title">
+                        <svg class="section-icon" viewBox="0 0 24 24">
+                            <path d="M12.87,15.07L10.33,12.56L10.36,12.53C12.1,10.59 13.34,8.36 14.07,6H17V4H10V2H8V4H1V6H12.17C11.5,7.92 10.44,9.75 9,11.35C8.07,10.32 7.3,9.19 6.69,8H4.69C5.42,9.63 6.42,11.17 7.67,12.56L2.58,17.58L4,19L9,14L12.11,17.11L12.87,15.07Z"/>
+                        </svg>
+                        Langues
+                    </h2>
+                    <div class="languages-grid">
+                        <div class="language-item">
+                            <span class="language-name">Français</span>
+                            <span class="skill-level level-tres-bien">Très bien</span>
+                        </div>
+                        <div class="language-item">
+                            <span class="language-name">Anglais</span>
+                            <span class="skill-level level-bien">Bien</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Centres d'intérêt -->
+                <div class="section">
+                    <h2 class="section-title">
+                        <svg class="section-icon" viewBox="0 0 24 24">
+                            <path d="M12,3L1,9L12,15L21,11.09V17H23V9L12,3M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z"/>
+                        </svg>
+                        Centres d'intérêt
+                    </h2>
+                    <div class="interests">
+                        <svg class="interests-icon" viewBox="0 0 24 24">
+                            <path d="M21,4H3A2,2 0 0,0 1,6V19A2,2 0 0,0 3,21H21A2,2 0 0,0 23,19V6A2,2 0 0,0 21,4M21,19H3V6H21V19M4,8V18H6V8H4M7,8V18H20V8H7M8,9H19V11H8V9M8,12H19V14H8V12M8,15H19V17H8V15Z"/>
+                        </svg>
+                        <strong>Lecture</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="right-column">
+                <!-- Compétences techniques -->
+                <div class="section">
+                    <h2 class="section-title">
+                        <svg class="section-icon" viewBox="0 0 24 24">
+                            <path d="M14,12H19.5L14,6.5V12M6,2H14L20,8V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V4C4,2.89 4.89,2 6,2Z"/>
+                        </svg>
+                        Compétences techniques
+                    </h2>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <span class="skill-name">HTML5</span>
+                            <span class="skill-level level-intermediaire">Intermédiaire</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">CSS3</span>
+                            <span class="skill-level level-intermediaire">Intermédiaire</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">JavaScript</span>
+                            <span class="skill-level level-intermediaire">Intermédiaire</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">JEE</span>
+                            <span class="skill-level level-debutant">Débutant</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">JAVA</span>
+                            <span class="skill-level level-debutant">Débutant</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Programmation logique</span>
+                            <span class="skill-level level-bien">Bien</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Programmation SQL</span>
+                            <span class="skill-level level-bien">Bien</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Excel</span>
+                            <span class="skill-level level-bien">Bien</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Réalisations -->
+                <div class="section">
+                    <h2 class="section-title">
+                        <svg class="section-icon" viewBox="0 0 24 24">
+                            <path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z"/>
+                        </svg>
+                        Réalisations
+                    </h2>
+                    <div class="achievements-list">
+                        <div class="achievement-item">
+                            <div class="achievement-title">Marketplace immobilière</div>
+                            <p>Création d'une plateforme complète de vente et location immobilière</p>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-title">Système de gestion bibliothèque</div>
+                            <p>Développement en JEE d'un système de gestion pour la bibliothèque universitaire</p>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-title">Site web de location de voiture</div>
+                            <p>Conception et réalisation d'une plateforme de location de véhicules</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
